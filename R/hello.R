@@ -1,21 +1,19 @@
 formulageneral <- function(a, b, c) {
   discriminante <- b^2 - 4 * a * c
-
+  
   if (discriminante > 0) {
     # Dos soluciones reales distintas
     x1 <- (-b + sqrt(discriminante)) / (2 * a)
     x2 <- (-b - sqrt(discriminante)) / (2 * a)
-    return(list(x1 = x1, x2 = x2))
+    mensaje <- paste("La factorización es:", x1, "y", x2)
+    cat(mensaje, "\n")
   } else if (discriminante == 0) {
     # Una solución real doble
     x <- -b / (2 * a)
-    return(x)
+    mensaje <- paste("La factorización es:", x)
+    cat(mensaje, "\n")
   } else {
-    # Soluciones complejas
-    parte_real <- -b / (2 * a)
-    parte_imaginaria <- sqrt(-discriminante) / (2 * a)
-    return(list(x1 = paste(parte_real, "+", parte_imaginaria, "i"),
-                x2 = paste(parte_real, "-", parte_imaginaria, "i")))
+    # No se imprimen soluciones complejas
+    cat("No hay soluciones reales para los coeficientes dados.\n")
   }
 }
-
